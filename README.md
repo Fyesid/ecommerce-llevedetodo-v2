@@ -78,10 +78,15 @@ npm install
 Cree un archivo `.env` en la carpeta raíz con la siguiente estructura:
 
 DB_HOST=localhost
+
 DB_USER=tu_usuario
+
 DB_PASSWORD=tu_contraseña
+
 DB_NAME=llevedetodo
+
 DB_PORT=puerto_bd
+
 JWT_SECRET=token_autenticación
 
 Ajuste las variables según la configuración de su sistema de base de datos.
