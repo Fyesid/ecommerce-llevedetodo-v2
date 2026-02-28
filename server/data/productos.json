@@ -1,0 +1,52 @@
+{
+    "productos": [
+        {
+            "id": 1,
+            "imagen": "assets/images/products/camara123.jpg",
+            "nombre": "Cámara digital profesional",
+            "precio": 600789,
+            "descuento": 0.6,
+            "calificacion": 4.6
+        },
+        {
+            "id": 2,
+            "imagen": "assets/images/products/iphone123.jpg",
+            "nombre": "iphone 15 Pro Max",
+            "precio": 1500000,
+            "descuento": 0.3,
+            "calificacion": 4.6
+        },
+        {
+            "id": 3,
+            "imagen": "assets/images/products/vestidos123.jpg",
+            "nombre": "Vestidos para Mujer",
+            "precio": 35500,
+            "descuento": 0.4,
+            "calificacion": 4.6
+        },
+        {
+            "id": 4,
+            "imagen": "assets/images/products/headphones123.jpg",
+            "nombre": "Auriculares Gamer Re-dragon GTX Max",
+            "precio": 432700,
+            "descuento": 0.6,
+            "calificacion": 4.6
+        },
+        {
+            "id": 5,
+            "imagen": "assets/images/products/laptop123.png",
+            "nombre": "Laptop Nikron 6 Gen 15",
+            "precio": 1743500,
+            "descuento": 0.4,
+            "calificacion": 4.6
+        },
+        {
+            "id": 6,
+            "imagen": "assets/images/products/audifonos123.png",
+            "nombre": "Audífonos mp3 Like 4",
+            "precio": 600789,
+            "descuento": 0.6,
+            "calificacion": 4.6
+        }
+    ]
+}

@@ -1,25 +1,48 @@
 # Ecommerce llevedetodo.com
 
 ## Descripción
-Proyecto académico que consiste en el desarrollo de un **sitio web fullstack de comercio electrónico**.  
-El proyecto abarca desde el **modelado de la base de datos** hasta el **diseño visual típico de una plataforma e-commerce**, incluyendo funcionalidades como gestión de productos, usuarios y flujo de compra.
+Aplicación web fullstack de comercio electrónico desarrollada bajo una arquitectura
+cliente-servidor. Permite autenticación de usuarios, gestión de productos y
+flujo básico de compra, abarcando desde el modelado de la base de datos
+hasta el diseño visual de una plataforma e-commerce.
+
 
 ## Estado
 🚧 En desarrollo (Estructura inicial del proyecto)
 
 ## Tecnologías utilizadas
 
-### Frontend
+### Lenguajes
+- HTML
 - JavaScript
-- React
 - CSS
+
+### Frameworks y librerías
+- React
+- Express.js
 - Tailwind CSS
+- bcrypt (hash de contraseñas)
+- jsonwebtoken (autenticación JWT)
+
+### Entorno y herramientas
+- Node.js
 - Vite
 
-### Backend
-- JavaScript
-- Node.js
-- Express.js (En proceso de implementación)
+### Base de Datos
+- MariaDB
+
+## Arquitectura del sistema
+
+El proyecto sigue una arquitectura cliente-servidor:
+
+- Frontend: SPA desarrollada con React y Vite.
+- Backend: API REST construida con Node.js y Express.
+- Base de datos: MariaDB relacional.
+
+## Funcionalidades implementadas
+
+- Inicio de sesión
+- visualización de productos
 
 ---
 
@@ -33,15 +56,64 @@ Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
 ### 1️⃣ Clonar el repositorio
 ```bash
-git clone https://github.com/usuario/ecommerce-llevedetodo.git
-cd ecommerce-llevedetodo
+git clone https://github.com/usuario/ecommerce-llevedetodo-v2.git
+cd ecommerce-llevedetodo-v2
 ```
 
 ### 2️⃣ Instalar las dependencias
 ```bash
 npm install
 ```
-### 3️⃣ Ejecutar el proyecto en modo desarrollador
+### 3️⃣ Configurar la base de datos
+
+1. Crear una base de datos en MariaDB.
+2. Importar el script ubicado en:
+   `/server/db/llevedetodo_202602281520.sql`
+3. (Opcional) Importar:
+   `/server/db/admin_user.sql`
+   para generar un usuario administrador de prueba.
+
+### 4️⃣ Crear variables de entorno
+
+Cree un archivo `.env` en la carpeta raíz con la siguiente estructura:
+
+DB_HOST=localhost
+DB_USER=tu_usuario
+DB_PASSWORD=tu_contraseña
+DB_NAME=llevedetodo
+DB_PORT=puerto_bd
+JWT_SECRET=token_autenticación
+
+Ajuste las variables según la configuración de su sistema de base de datos.
+
+### 5️⃣ Ejecutar el backend del proyecto
+Abra una terminal y ejecute el siguiente comando para inicializar el backend:
+```bash
+node server/server.js
+```
+
+### 6️⃣ Ejecutar el frontend del proyecto en modo desarrollador
 ```bash
 npm run dev
 ```
+
+## Autores
+
+### David Alejandro Camacho
+
+- Fullstack developer
+
+- Estudiante de ingeniería de sistemas
+
+- Estudiante de Análisis y Desarrollo de Software
+
+### Freyler Yesid Contrera
+
+- Documentación
+- Diseño UI
+- Estudiante de Análisis y Desarrollo de Software
+
+### Gustavo Grisales Soto
+- Frontend Developer
+- Diseño UI
+- Estudiante de Análisis y Desarrollo de Software

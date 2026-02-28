@@ -1,34 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
+import Modal from "./components/Modal";
+import LoginForm from './components/LoginForm';
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Variable y función que maneja el estado del modal (Abierto o cerrado).
+  const [isOpen, setOpen] = useState(false);
+
+  function closeModal() {setOpen(false);}
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-zinc-50 overflow-hidden">
+      <Header onOpen={() => setOpen(true)} onUserMenu={() => setUserMenu(true)} /> 
+      <MainContent />
+      <Footer />
+
+      {isOpen && (
+        <Modal onClose={closeModal}>
+            <LoginForm onLoginSuccess={ closeModal } />
+        </Modal>
+      )}
+    </div>
   )
 }
 

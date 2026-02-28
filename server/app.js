@@ -1,11 +1,25 @@
 // Aquí va la configuración de Express
 
 import express from 'express';
+import cors from 'cors';
+
+import authRoutes from './routes/auth.routes.js';
+import productsRoutes from './routes/product.routes.js';
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+/* ---------------- MIDDLEWARES GLOBALES ---------------- */
+
+app.use(express.json());
+
+app.use(cors());
+
+/* ---------------- ROUTES ---------------- */
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productsRoutes);
+
+app.get('/health', (req, res) => {
+    res.json({message: 'API funcionando'});
 });
 
 export default app;
