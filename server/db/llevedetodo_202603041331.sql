@@ -607,7 +607,7 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `nombreDeUsuario_UNIQUE` (`nombre_de_usuario`),
   UNIQUE KEY `correo_UNIQUE` (`correo`),
   UNIQUE KEY `celular_UNIQUE` (`celular`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -616,8 +616,6 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES
-(1,'admin','administrador','admin123','admin@gmail.com','1234567890','$2a$10$LzdxfRXKIIplig8Et52q0elOwkHvQGv4vnfp2vEOprxRaGdpbK0Fe','2026-02-28 20:01:56',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -634,4 +632,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-28 15:20:14
+-- Dump completed on 2026-03-04 13:31:32

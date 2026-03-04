@@ -68,10 +68,7 @@ npm install
 
 1. Crear una base de datos en MariaDB.
 2. Importar el script ubicado en:
-   `/server/db/llevedetodo_202602281520.sql`
-3. (Opcional) Importar:
-   `/server/db/admin_user.sql`
-   para generar un usuario administrador de prueba.
+   `/server/db/llevedetodo_202603041331.sql`
 
 ### 4️⃣ Crear variables de entorno
 
@@ -87,7 +84,7 @@ DB_NAME=llevedetodo
 
 DB_PORT=puerto_bd
 
-JWT_SECRET=token_autenticación
+JWT_SECRET=llave_secreta_autenticación
 
 Ajuste las variables según la configuración de su sistema de base de datos.
 
