@@ -1,6 +1,6 @@
 export default function ProductCard({ producto, parentId }) {
 
-    const {id, imagen, nombre, precio, descuento, calificacion} = producto;
+    const {id, imagen, nombre, precio, descuento} = producto;
 
     const precio_final = new Intl.NumberFormat('es-Co', {
         style: 'currency',
@@ -18,7 +18,7 @@ export default function ProductCard({ producto, parentId }) {
 
     const title = 'product-title' + parentId + id;
 
-    const selectStyle  = 'text-amber-500'
+    const selectStyle  = 'text-amber-500';
 
     function selectProduct() {
         document.getElementById(title).classList.add(selectStyle);

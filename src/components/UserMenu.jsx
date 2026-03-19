@@ -5,6 +5,8 @@ import cupones from '../assets/icons/cupon.svg';
 import favoritos from '../assets/icons/favoritos.svg';
 import logoutIcon from '../assets/icons/logout.svg';
 
+import { Link } from 'react-router-dom';
+
 import { useAuth } from '../hooks/useAuth';
 
 export default function UserMenu() {
@@ -14,15 +16,18 @@ export default function UserMenu() {
     const submenu1 = [
         {
             name: 'Mis Órdenes',
-            icon: ordenes
+            icon: ordenes,
+            path: "cuenta/compras/lista"
         },
         {
             name: 'Centro de Mensajes',
-            icon: mensajes
+            icon: mensajes,
+            path: "cuenta/compras/opiniones"
         },
         {
             name: 'Pagos',
-            icon: pagos
+            icon: pagos,
+            path: "cuenta/facturas"
         },
         {
             name: 'Cupones',
@@ -30,11 +35,29 @@ export default function UserMenu() {
         },
         {
             name: 'Favoritos',
-            icon: favoritos
+            icon: favoritos,
+            path: "cuenta/compras/favoritos"
         },
     ]
 
-    const submenu2 = ['Configuración', 'Centro de Ayuda', 'Reportes', 'Negocios'];
+    const submenu2 = [
+        {
+            name: 'Configuración',
+            path: "cuenta/ajustes"
+        },
+        {
+            name: 'Centro de Ayuda',
+            path: ""
+        },
+        {
+            name: 'Reportes',
+            path: ""
+        },
+        {
+            name: 'Negocios',
+            path: ""
+        }
+    ];
 
     return (
         <div className="absolute top-full pt-5 right-1/2 translate-x-1/2 drop-shadow-xl z-50">
@@ -58,20 +81,20 @@ export default function UserMenu() {
                                 submenu1.map((option) => {
                                     return (
                                     <li className="pl-2 hover:bg-orange-300/70 rounded-sm" key={option.name}>
-                                        <a href="" className="flex items-center gap-3 block p-2 w-full h-full text-md">
+                                        <Link to={ option.path } className="flex items-center gap-3 block p-2 w-full h-full text-md">
                                             <img src={ option.icon } alt={ option.name } className='size-6' />
                                             <p>{ option.name }</p>
-                                        </a>
+                                        </Link>
                                     </li>);
                                 })
                             }
                         </ul>
-                        <ul className='flex flex-col py-6 gap-3 border-b-1'>
+                        <ul className='flex flex-col py-6 gap-3'>
                             {
                                 submenu2.map((option) => {
                                     return (
-                                    <li className="pl-3 hover:bg-orange-300/70 rounded-sm" key={option}>
-                                        <a href="" className="block p-2 w-full h-full text-sm">{ option }</a>
+                                    <li className="pl-3 hover:bg-orange-300/70 rounded-sm" key={option.name}>
+                                        <Link to={ option.path } className="block p-2 w-full h-full text-sm">{ option.name }</Link>
                                     </li>
                                     );
                                 })
