@@ -15,13 +15,14 @@ import VentasPublicaciones from './pages/VentasPublicaciones';
 import VentasPreguntas from './pages/VentasPreguntas';
 
 import Perfil from './pages/Perfil';
+import Direcciones from './pages/Direcciones';
+import AgregarDireccion from './pages/AgregarDireccion';
 import Facturacion from './pages/Facturacion';
 import Ajustes from './pages/Ajustes';
 
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import AccountLayout from './layouts/AccountLayout';
-
 
 function App() {
 
@@ -45,6 +46,9 @@ function App() {
             <Route path="ventas/preguntas" element={ <VentasPreguntas /> }></Route>
 
             <Route path="perfil" element={ <Perfil /> }></Route>
+            <Route path="perfil/direcciones" element={ <Direcciones /> }></Route>
+            <Route path="perfil/direcciones/agregar" element={ <AgregarDireccion /> }></Route>
+
             <Route path="facturas" element={ <Facturacion /> }></Route>
             <Route path="ajustes" element={ <Ajustes /> }></Route>
           </Route>

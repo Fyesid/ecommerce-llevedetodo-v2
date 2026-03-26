@@ -95,7 +95,7 @@ export default function RegisterForm({ onRegisterSuccess }) {
     return (
         <form className="grid grid-cols-2 gap-6" onSubmit={ handleSubmit }>
             {
-                registerInputs.map((input) => <TextInput {...input} className={input.className} key={input.name} />)
+                registerInputs.map((input) => <TextInput {...input} className={input.className + " p-4"} key={input.name} />)
             }
             <button type="submit" className='col-span-full p-3 bg-red-400 text-white cursor-pointer rounded-sm'>Registrarme</button>
         </form>

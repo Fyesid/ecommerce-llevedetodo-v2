@@ -47,7 +47,7 @@ export default function LoginForm({ onLoginSuccess }) {
         <form className='flex flex-col flex-1 justify-center items-center space-y-6' onSubmit={ handleSubmit }>
             <h2 className="text-2xl font-bold">Iniciar Sesión</h2>
             {
-            loginInputs.map((elem, index) => <TextInput { ...elem } className="w-full" key={ index } />)
+            loginInputs.map((elem, index) => <TextInput { ...elem } className="w-full p-4" key={ index } />)
             }
             <button type="submit" className='w-full text-white bg-red-400 p-3 rounded-md cursor-pointer'>Iniciar Sesión</button>
             <a href="" className='text-stone-400 underline'>Olvidaste la contraseña?</a>
