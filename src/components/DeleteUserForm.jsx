@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import TextInput from "../components/TextInput";
 import { useForm } from "../hooks/useForm";
-import { deleteItem } from "../services/deleteData";
+import { userService } from "../services/userService";
 import { useAuth } from "../hooks/useAuth";
-import Modal from "../components/Modal";
 
-import UserDeleted from "./UserDeleted";
+import TextInput from "../components/TextInput";
+import Modal from "../components/Modal";
+import ConfirmationPrompt from "./ConfirmationPrompt";
 
 export default function DeleteUserForm() {
 
@@ -20,7 +20,7 @@ export default function DeleteUserForm() {
         try {
             const token = localStorage.getItem('token');
             
-            const response = await deleteItem(`usuario/${user.id}`, {
+            const response = await userService(`usuario/${user.id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -35,19 +35,28 @@ export default function DeleteUserForm() {
         }
     }
 
+    function closeModal() {
+        logout();
+        navigate("/");
+    }
+
     return (
         <>
             <form className="flex flex-col gap-8" autoComplete="off" onSubmit={ handleSubmit }>
                 <div className="flex flex-col gap-2">
                     <label htmlFor="confirmPass">Digita tu contraseña para continuar con la eliminación de la cuenta:</label>
-                    <TextInput className="p-2" type="password" name="confirmPass" autoComplete="new-password" value={ formData.confirmPass } onChange={ handleChange } />
+                    <TextInput className="p-2 bg-white" type="password" name="confirmPass" autoComplete="new-password" value={ formData.confirmPass } onChange={ handleChange } />
                 </div>
                 <button className="self-end w-40 p-2 bg-red-400 text-white rounded-sm cursor-pointer">Eliminar cuenta</button>
             </form>
 
             {isOpen && (
-                <Modal onClose={ () => {logout(); navigate("/");} }>
-                    <UserDeleted />
+                <Modal onClose={ closeModal }>
+                    <ConfirmationPrompt 
+                    header="¡Hasta Pronto!" 
+                    text="El Usuario se Eliminó correctamente. Gracias por elegirnos y esperamos Regreses!."
+                    onAccept="/"
+                    />
                 </Modal>
             )}
         </>

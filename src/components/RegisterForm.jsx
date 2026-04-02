@@ -3,7 +3,7 @@ import TextInput from "./TextInput";
 import { useAuth } from '../hooks/useAuth';
 import { useForm } from '../hooks/useForm';
 
-import { authFetch } from '../services/fetchData';
+import { authFetch } from '../services/authService';
 
 export default function RegisterForm({ onRegisterSuccess }) {
 
@@ -84,6 +84,8 @@ export default function RegisterForm({ onRegisterSuccess }) {
         
             if (response.status === 201) {
                 login(data);
+
+                onRegisterSuccess();
             }
         } catch(error) {
             console.log(error);

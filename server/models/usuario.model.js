@@ -37,13 +37,58 @@ export async function findPasswordById(id) {
     return rows[0];
 }
 
-export async function deleteUserById(id) {
+export async function findAdditionalDataById(id) {
     const [rows] = await pool.execute(
+        'SELECT apellido, celular FROM usuario WHERE id = ?',
+        [id]
+    );
+
+    return rows[0];
+}
+
+export async function deleteUserById(id) {
+    const [result] = await pool.execute(
         'DELETE FROM usuario WHERE id = ?',
         [id]
     );
 
-    return rows;
+    return result;
+}
+
+export async function updateUsername(id, username) {
+    const [result] = await pool.execute(
+        'UPDATE usuario SET nombre_de_usuario = ? WHERE id = ?',
+        [username, id]
+    );
+
+    return result.affectedRows;
+}
+
+export async function updateEmail(id, email) {
+    const [result] = await pool.execute(
+        'UPDATE usuario SET correo = ? WHERE id = ?',
+        [email, id]
+    );
+
+    return result.affectedRows;
+}
+
+export async function updatePhone(id, phone) {
+    const [result] = await pool.execute(
+        'UPDATE usuario SET celular = ? WHERE id = ?',
+        [phone, id]
+    );
+
+    return result.affectedRows;
+}
+
+export async function updateNames(id, firstname, lastname) {
+    const [result] = await pool.execute(
+        'UPDATE usuario SET nombre = ?, apellido = ? WHERE id = ?',
+        [firstname, lastname, id]
+    );
+
+    return result.affectedRows;
 }
 
 export async function existsEmail(email) {

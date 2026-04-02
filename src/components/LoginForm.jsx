@@ -3,7 +3,7 @@ import TextInput from './TextInput';
 import { useAuth } from '../hooks/useAuth';
 import { useForm } from '../hooks/useForm';
 
-import { authFetch } from '../services/fetchData';
+import { authFetch } from '../services/authService';
 
 export default function LoginForm({ onLoginSuccess }) {
 
@@ -30,9 +30,9 @@ export default function LoginForm({ onLoginSuccess }) {
                 body: JSON.stringify(formData)
             })
 
-            const data = await response.json();
-
             if (response.status === 200) {
+                const data = await response.json();
+
                 login(data);
         
                 onLoginSuccess();

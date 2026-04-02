@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Direcciones() {
     return (
-        <div className="w-full h-200 px-100 py-15">
+        <div className="w-full min-h-195 px-100 py-15">
             <div className="p-6 bg-amber-50 rounded-sm">
                 <div className="flex flex-col gap-4">
                     <header className="p-3">

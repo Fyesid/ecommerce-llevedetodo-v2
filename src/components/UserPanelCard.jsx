@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function UserPanelCard({ header, description, icon, ruta }) {
+export default function UserPanelCard({ atributes }) {
+
+    const {header, description, icon, ruta} = atributes;
+
     return (
         <Link to={ ruta }>
             <section className="flex flex-col gap-5 h-35 bg-amber-50 p-4 rounded-sm">
